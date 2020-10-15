@@ -7,10 +7,10 @@ namespace rpn
 {
     public class Scanner
     {
-        public static List<Token> GetTokens(String input) 
+        public static List<Op> GetOps(String input) 
         {
             
-            List<Token> tokens = new List<Token>(); 
+            List<Op> ops = new List<Op>(); 
 
             // input.Trim removes trailing whitespaces. 
             // there was a bug where even a single trailing whitespace 
@@ -18,23 +18,23 @@ namespace rpn
             // crash. 
             foreach(String word in Regex.Split(input.Trim(), @"\s+")){
                 
-                tokens.Add(GetToken(word)); 
+                ops.Add(GetOp(word)); 
             }
-            return tokens; 
+            return ops; 
         }
 
-        public static Token GetToken(String word)
+        public static Op GetOp(String word)
         {
             if (word == "+") {
-                return new Token(word, TokenType.ADD); 
+                return new AddOp(); 
             } else if (word == "-") {
-                return new Token(word, TokenType.SUB);  
+                return new SubOp(); 
             } else if (word == "*") {
-                return new Token(word, TokenType.MUL);  
+                return new MulOp(); 
             } else if (word == "/") {
-                return new Token(word, TokenType.DIV);  
+                return new DivOp(); 
             } else if (IsNumber(word)) {
-                return new Token(word, TokenType.NUM);  
+                return new Num(Double.Parse(word)); 
             } else {
                 throw new FormatException($"Unexpected input: '{word}'"); 
             }
