@@ -34,8 +34,15 @@ namespace rpn
     {
         public override void evaluate(Stack<Double> stack) {
             Double right = stack.Pop(); 
-            Double left = stack.Pop(); 
-            stack.Push(left - right); 
+
+            // if there were only 1 value on the stack, negate it
+            if (stack.Count == 0) {
+                stack.Push(-1 * right); 
+            } else {
+                Double left = stack.Pop(); 
+                stack.Push(left - right);  
+            }
+
         }
     }
 
@@ -53,6 +60,9 @@ namespace rpn
         public override void evaluate(Stack<Double> stack) {
             Double right = stack.Pop(); 
             Double left = stack.Pop(); 
+            if (right == 0) {
+                throw new DivideByZeroException(); 
+            }
             stack.Push(left / right); 
         }
     }

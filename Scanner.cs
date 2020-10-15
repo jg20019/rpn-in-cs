@@ -36,7 +36,7 @@ namespace rpn
             } else if (IsNumber(word)) {
                 return new Num(Double.Parse(word)); 
             } else {
-                throw new FormatException($"Unexpected input: '{word}'"); 
+                throw new InvalidSyntaxException(); 
             }
         }
         private static Boolean IsNumber(String word) 

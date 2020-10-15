@@ -6,9 +6,17 @@ namespace rpn
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("RPN Calculator"); 
+            Console.WriteLine("Type Ctrl + c to exit."); 
             for(;;) {
-                Console.Write("> "); 
-                Console.WriteLine(RPN.evaluate(Console.ReadLine())); 
+                try{ 
+                    Console.Write("> "); 
+                    Console.WriteLine(RPN.evaluate(Console.ReadLine())); 
+                } catch (InvalidSyntaxException e) {
+                    Console.WriteLine(e.Message); 
+                } catch (DivideByZeroException) {
+                    Console.WriteLine("Cannot divide by zero."); 
+                }
             }
         }
     }
