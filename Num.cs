@@ -1,19 +1,18 @@
-using System;
-using System.Collections.Generic; 
+using System.Collections.Generic;
 
-namespace rpn 
-{   public class Num : Op
-    { 
-        private double value; 
+namespace rpn
+{
+    public class NumberOperation : IOperation
+    {
+        private double _value;
 
-        public Num(double value) {
-            this.value = value; 
+        public NumberOperation(double value)
+        {
+            _value = value;
         }
-    
-        public override void evaluate(Stack<double> stack) {
-            stack.Push(value); 
-        }
+
+        public void Evaluate(Stack<double> stack) => 
+            stack.Push(_value);
     }
 }
-    
-   
+

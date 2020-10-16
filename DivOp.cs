@@ -1,17 +1,19 @@
-using System; 
-using System.Collections.Generic; 
+using System;
+using System.Collections.Generic;
 
-namespace rpn 
+namespace rpn
 {
-    public class DivOp : Op
+    public class DivideOperation : IOperation
     {
-        public override void evaluate(Stack<double> stack) {
-            double right = stack.Pop(); 
-            double left = stack.Pop(); 
-            if (right == 0) {
-                throw new DivideByZeroException(); 
+        public void Evaluate(Stack<double> stack)
+        {
+            var right = stack.Pop();
+            var left = stack.Pop();
+            if (right == 0)
+            {
+                throw new DivideByZeroException();
             }
-            stack.Push(left / right); 
+            stack.Push(left / right);
         }
     }
 }

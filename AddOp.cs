@@ -1,14 +1,14 @@
-using System; 
-using System.Collections.Generic; 
+using System.Collections.Generic;
 
-namespace rpn 
+namespace rpn
 {
-    public class AddOp : Op 
+    public class AddOperation : IOperation
     {
-        public override void evaluate(Stack<double> stack) {
-            double right = stack.Pop(); 
-            double left = stack.Pop(); 
-            stack.Push(left + right); 
+        public void Evaluate(Stack<double> stack)
+        {
+            var right = stack.Pop();
+            var left = stack.Pop();
+            stack.Push(left + right);
         }
     }
 }

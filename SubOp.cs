@@ -1,19 +1,22 @@
-using System; 
-using System.Collections.Generic; 
+using System.Collections.Generic;
 
-namespace rpn 
+namespace rpn
 {
- public class SubOp : Op 
+    public class SubtractOperation : IOperation
     {
-        public override void evaluate(Stack<double> stack) {
-            double right = stack.Pop(); 
+        public void Evaluate(Stack<double> stack)
+        {
+            var right = stack.Pop();
 
             // if there were only 1 value on the stack, negate it
-            if (stack.Count == 0) {
-                stack.Push(-1 * right); 
-            } else {
-                double left = stack.Pop(); 
-                stack.Push(left - right);  
+            if (stack.Count == 0)
+            {
+                stack.Push(-1 * right);
+            }
+            else
+            {
+                var left = stack.Pop();
+                stack.Push(left - right);
             }
 
         }

@@ -1,30 +1,32 @@
-using System; 
-using System.Collections.Generic; 
+using System;
+using System.Collections.Generic;
 
-namespace rpn 
+namespace rpn
 {
-    public class RPN 
+    public class RpnCalculator
     {
-        public static double evaluate(string input) {
-            Stack<double> stack  = new Stack<double>(); 
-            try {
-                List<Op> ops = Scanner.GetOps(input); 
-            } catch (InvalidSyntaxException) {
-                throw new InvalidSyntaxException($"Invalid syntax: '{input}'"); 
-            }
-            foreach (Op op in Scanner.GetOps(input)) 
+        public static double Evaluate(string input)
+        {
+            var stack = new Stack<double>();
+            try
             {
-                try {
-                    op.evaluate(stack); 
-                } catch (InvalidOperationException) {
-                    throw new InvalidSyntaxException($"Invalid syntax: '{input}'"); 
+                foreach (var operation in Scanner.GetOperations(input))
+                {
+                    operation.Evaluate(stack);
                 }
             }
-
-            if (stack.Count !=1 ){
-                throw new InvalidSyntaxException($"Invalid syntax: '{input}'"); 
+            catch (InvalidOperationException)
+            {
+                throw InvalidSyntax();
             }
-            return stack.Peek(); 
+
+            if (stack.Count != 1)
+            {
+                throw InvalidSyntax();
+            }
+            return stack.Peek();
+
+            InvalidSyntaxException InvalidSyntax() => new InvalidSyntaxException($"Invalid syntax: '{input}'");
         }
     }
 }
