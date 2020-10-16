@@ -2,15 +2,15 @@ using System;
 using System.Collections.Generic; 
 
 namespace rpn 
-{   public class NumOperation : Operation 
+{   public class NumberOperation : IOperation 
     { 
         private double value; 
 
-        public NumOperation(double value) {
+        public NumberOperation(double value) {
             this.value = value; 
         }
     
-        public override void evaluate(Stack<double> stack) {
+        public void Evaluate(Stack<double> stack) {
             stack.Push(value); 
         }
     }

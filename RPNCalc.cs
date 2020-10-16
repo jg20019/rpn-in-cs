@@ -7,15 +7,10 @@ namespace rpn
     {
         public static double evaluate(string input) {
             Stack<double> stack  = new Stack<double>(); 
-            try {
-                List<Operation> ops = Scanner.GetOps(input); 
-            } catch (InvalidSyntaxException) {
-                throw new InvalidSyntaxException($"Invalid syntax: '{input}'"); 
-            }
-            foreach (Operation op in Scanner.GetOps(input)) 
+            foreach (IOperation op in Scanner.GetOps(input)) 
             {
                 try {
-                    op.evaluate(stack); 
+                    op.Evaluate(stack); 
                 } catch (InvalidOperationException) {
                     throw new InvalidSyntaxException($"Invalid syntax: '{input}'"); 
                 }

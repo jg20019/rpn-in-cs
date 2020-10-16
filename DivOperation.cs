@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 namespace rpn 
 {
-    public class DivOperation : Operation
+    public class DivOperation : IOperation
     {
-        public override void evaluate(Stack<double> stack) {
+        public void Evaluate(Stack<double> stack) {
             double right = stack.Pop(); 
             double left = stack.Pop(); 
             if (right == 0) {

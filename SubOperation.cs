@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 namespace rpn 
 {
- public class SubOperation : Operation  
+ public class SubOperation : IOperation  
     {
-        public override void evaluate(Stack<double> stack) {
+        public void Evaluate(Stack<double> stack) {
             double right = stack.Pop(); 
 
             // if there were only 1 value on the stack, negate it
