@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace rpn 
 {
- public class SubOperation : IOperation  
+ public class SubtractionOperaton : IOperation  
     {
         public void Evaluate(Stack<double> stack) {
             double right = stack.Pop(); 
