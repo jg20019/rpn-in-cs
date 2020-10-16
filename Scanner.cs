@@ -1,7 +1,6 @@
 using System; 
 using System.Collections; 
 using System.Collections.Generic;
-using System.Text.RegularExpressions; 
 
 namespace rpn 
 {
@@ -33,17 +32,15 @@ namespace rpn
                 return new MulOp(); 
             } else if (word == "/") {
                 return new DivOp(); 
-            } else if (IsNumber(word)) {
-                return new Num(Double.Parse(word)); 
             } else {
-                throw new InvalidSyntaxException(); 
+                double value; 
+                if (Double.TryParse(word, out value)) {
+                    return new Num(value); 
+                } else {
+                    throw new InvalidSyntaxException(); 
+                }
             }
         }
-        private static bool IsNumber(string word) 
-        {
-            return Regex.IsMatch(word, @"^\d+$"); 
-        }
-
     }
 }
 
