@@ -16,7 +16,7 @@ namespace rpn
             // there was a bug where even a single trailing whitespace 
             // created an empty string word which caused GetToken to 
             // crash. 
-            foreach(string word in Regex.Split(input.Trim(), @"\s+")){
+            foreach(string word in input.Trim().Split(' ')){
                 
                 ops.Add(GetOp(word)); 
             }
