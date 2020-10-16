@@ -7,7 +7,8 @@ namespace rpn
     {
         public static double evaluate(string input) {
             Stack<double> stack  = new Stack<double>(); 
-            foreach (IOperation op in Scanner.GetOps(input)) 
+            var scanner = new Scanner(new OperationBuilder()); 
+            foreach (IOperation op in scanner.GetOps(input)) 
             {
                 try {
                     op.Evaluate(stack); 

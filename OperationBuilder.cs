@@ -4,7 +4,7 @@ namespace rpn
 {
     public class OperationBuilder 
     {
-        public static IOperation makeOperation(string word) {
+        public IOperation makeOperation(string word) {
             return word switch
             {
                 "+" => new AdditionOperation(),
