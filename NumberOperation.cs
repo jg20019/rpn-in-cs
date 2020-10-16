@@ -1,17 +1,18 @@
-using System;
 using System.Collections.Generic; 
 
 namespace rpn 
 {   public class NumberOperation : IOperation 
     { 
-        private double value; 
+        private double _value; 
 
-        public NumberOperation(double value) {
-            this.value = value; 
+        public NumberOperation(double value)
+        {
+            this._value = value; 
         }
     
-        public void Evaluate(Stack<double> stack) {
-            stack.Push(value); 
+        public void Evaluate(Stack<double> stack) 
+        {
+            stack.Push(_value); 
         }
     }
 }
