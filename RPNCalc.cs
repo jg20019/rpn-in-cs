@@ -8,11 +8,11 @@ namespace rpn
         public static double evaluate(string input) {
             Stack<double> stack  = new Stack<double>(); 
             try {
-                List<Op> ops = Scanner.GetOps(input); 
+                List<Operation> ops = Scanner.GetOps(input); 
             } catch (InvalidSyntaxException) {
                 throw new InvalidSyntaxException($"Invalid syntax: '{input}'"); 
             }
-            foreach (Op op in Scanner.GetOps(input)) 
+            foreach (Operation op in Scanner.GetOps(input)) 
             {
                 try {
                     op.evaluate(stack); 

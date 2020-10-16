@@ -2,11 +2,11 @@ using System;
 using System.Collections.Generic; 
 
 namespace rpn 
-{   public class Num : Op
+{   public class NumOperation : Operation 
     { 
         private double value; 
 
-        public Num(double value) {
+        public NumOperation(double value) {
             this.value = value; 
         }
     

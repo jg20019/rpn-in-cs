@@ -6,10 +6,10 @@ namespace rpn
 {
     public class Scanner
     {
-        public static List<Op> GetOps(string input) 
+        public static List<Operation> GetOps(string input) 
         {
             
-            List<Op> ops = new List<Op>(); 
+            List<Operation> ops = new List<Operation>(); 
 
             // input.Trim removes trailing whitespaces. 
             // there was a bug where even a single trailing whitespace 
@@ -22,20 +22,20 @@ namespace rpn
             return ops; 
         }
 
-        public static Op GetOp(string word)
+        public static Operation GetOp(string word)
         {
             if (word == "+") {
-                return new AddOp(); 
+                return new AddOperation(); 
             } else if (word == "-") {
-                return new SubOp(); 
+                return new SubOperation(); 
             } else if (word == "*") {
-                return new MulOp(); 
+                return new MulOperation(); 
             } else if (word == "/") {
-                return new DivOp(); 
+                return new DivOperation(); 
             } else {
                 double value; 
                 if (Double.TryParse(word, out value)) {
-                    return new Num(value); 
+                    return new NumOperation(value); 
                 } else {
                     throw new InvalidSyntaxException(); 
                 }

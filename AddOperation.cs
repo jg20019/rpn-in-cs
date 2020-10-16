@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace rpn 
 {
-    public class AddOp : Op 
+    public class AddOperation : Operation
     {
         public override void evaluate(Stack<double> stack) {
             double right = stack.Pop(); 
