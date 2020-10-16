@@ -8,7 +8,7 @@ namespace rpn
         {
             Console.WriteLine("RPN Calculator"); 
             Console.WriteLine("Type Ctrl + c to exit."); 
-            for(;;) {
+            while(true) {
                 try{ 
                     Console.Write("> "); 
                     Console.WriteLine(RPN.evaluate(Console.ReadLine())); 
