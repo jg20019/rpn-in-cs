@@ -5,6 +5,6 @@ namespace rpn
 {
     public abstract class Op
     {
-        public abstract void evaluate(Stack<Double> stack); 
+        public abstract void evaluate(Stack<double> stack); 
     }     
 }

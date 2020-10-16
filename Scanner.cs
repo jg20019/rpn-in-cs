@@ -7,7 +7,7 @@ namespace rpn
 {
     public class Scanner
     {
-        public static List<Op> GetOps(String input) 
+        public static List<Op> GetOps(string input) 
         {
             
             List<Op> ops = new List<Op>(); 
@@ -16,14 +16,14 @@ namespace rpn
             // there was a bug where even a single trailing whitespace 
             // created an empty string word which caused GetToken to 
             // crash. 
-            foreach(String word in Regex.Split(input.Trim(), @"\s+")){
+            foreach(string word in Regex.Split(input.Trim(), @"\s+")){
                 
                 ops.Add(GetOp(word)); 
             }
             return ops; 
         }
 
-        public static Op GetOp(String word)
+        public static Op GetOp(string word)
         {
             if (word == "+") {
                 return new AddOp(); 
@@ -39,7 +39,7 @@ namespace rpn
                 throw new InvalidSyntaxException(); 
             }
         }
-        private static Boolean IsNumber(String word) 
+        private static bool IsNumber(string word) 
         {
             return Regex.IsMatch(word, @"^\d+$"); 
         }

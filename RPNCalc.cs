@@ -5,8 +5,8 @@ namespace rpn
 {
     public class RPN 
     {
-        public static Double evaluate(String input) {
-            Stack<Double> stack  = new Stack<Double>(); 
+        public static double evaluate(string input) {
+            Stack<double> stack  = new Stack<double>(); 
             try {
                 List<Op> ops = Scanner.GetOps(input); 
             } catch (InvalidSyntaxException) {

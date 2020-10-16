@@ -4,13 +4,13 @@ using System.Collections.Generic;
 namespace rpn 
 {   public class Num : Op
     { 
-        private Double value; 
+        private double value; 
 
-        public Num(Double value) {
+        public Num(double value) {
             this.value = value; 
         }
     
-        public override void evaluate(Stack<Double> stack) {
+        public override void evaluate(Stack<double> stack) {
             stack.Push(value); 
         }
     }
