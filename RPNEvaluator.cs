@@ -3,13 +3,19 @@ using System.Collections.Generic;
 
 namespace rpn 
 {
-    public class RPN 
+
+     
+    public class RPNEvaluator 
     {
-        public static double evaluate(string input)
+        private Scanner _scanner; 
+        public RPNEvaluator(Scanner scanner)
+        {
+            _scanner = scanner; 
+        }
+        public double evaluate(string input)
         {
             Stack<double> stack  = new Stack<double>(); 
-            var scanner = new Scanner(new OperationBuilder()); 
-            foreach (IOperation op in scanner.GetOps(input)) 
+            foreach (IOperation op in _scanner.GetOps(input)) 
             {
                 try 
                 {

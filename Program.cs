@@ -8,12 +8,14 @@ namespace rpn
         {
             Console.WriteLine("RPN Calculator"); 
             Console.WriteLine("Type Ctrl + c to exit."); 
+            var builder = new OperationBuilder();
+            var rpn = new RPNEvaluator(new Scanner(builder)); 
             while(true)
             {
                 try
                 { 
                     Console.Write("> "); 
-                    Console.WriteLine(RPN.evaluate(Console.ReadLine())); 
+                    Console.WriteLine(rpn.evaluate(Console.ReadLine())); 
                 }
                 catch (InvalidSyntaxException e)
                 {
